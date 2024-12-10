@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1016770865093",
+    "project_id": "frigoservicios-48cc0",
+    "storage_bucket": "frigoservicios-48cc0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016770865093:android:cdaee538d80cae11910dac",
+        "android_client_info": {
+          "package_name": "com.frigoservicios.proyecto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK9VE7OKWJ2uUZY1SV-Ad0tKXf2w6UOzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

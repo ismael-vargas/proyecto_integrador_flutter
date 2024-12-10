@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        google()  // Asegúrate de tener este repositorio para acceder a las dependencias de Firebase
+        mavenCentral()  // Repositorio adicional si es necesario
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.0'  // Verifica que esta versión sea la correcta según tu proyecto
+
+        // Plugin de Google Services para integrar Firebase
+        classpath 'com.google.gms:google-services:4.3.15'  // Este es el plugin necesario para Firebase
+
+        // El plugin de Kotlin debe ser compatible con la versión que estés utilizando
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0'  // Verifica que esta versión sea compatible con tu proyecto
+    }
+}
+
+allprojects {
+    repositories {
+        google()  // Repositorio para obtener las dependencias de Google
+        mavenCentral()  // Repositorio para obtener otras dependencias necesarias
+    }
+}
+
+rootProject.buildDir = "../build"  // Esta es la ubicación del directorio de construcción
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"  // Define los directorios de construcción para los subproyectos
+}
+
+subprojects {
+    project.evaluationDependsOn(":app")  // Configuración para evaluar las dependencias del subproyecto app
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir  // Limpia la construcción del proyecto
+}

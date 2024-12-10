@@ -1,0 +1,49 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services'  // Asegúrate de que este plugin esté presente si usas Firebase
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"  // El plugin de Flutter debe ser aplicado después de los de Android y Kotlin
+}
+
+android {
+    namespace = "com.frigoservicios.proyecto"  // Asegúrate de que el namespace coincida con el applicationId
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.frigoservicios.proyecto"  // Usa el mismo applicationId
+        minSdkVersion 23  // Asegúrate de que sea 23 o superior
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Reemplázalo si tienes una configuración de firma
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.google.firebase:firebase-auth:21.0.5'  // Firebase Authentication
+    implementation 'com.google.firebase:firebase-firestore:24.0.0'  // Firebase Firestore
+    implementation 'com.google.firebase:firebase-storage:20.0.0'  // Firebase Storage
+    implementation 'com.google.firebase:firebase-analytics:20.1.0'  // Firebase Analytics (si lo necesitas)
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'  // Firebase Messaging (si lo necesitas)
+}
+
+flutter {
+    source = "../.."  // Asegúrate de que esta ruta sea correcta
+}
+
+apply plugin: 'com.google.gms.google-services'  // Este plugin debe ser el último en la lista
